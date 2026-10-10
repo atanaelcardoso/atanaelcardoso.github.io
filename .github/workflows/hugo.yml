@@ -1,49 +1,33 @@
-name: Deploy Hugo site to Pages
-
+name: Hugo CI
 
 on:
   push:
     branches:
       - main
-      - master
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-defaults:
-  run:
-    shell: bash
+  pull_request:
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
-          submodules: recursive
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com
-          sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Build with Hugo
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: latest
+          extended: true
+
+      - name: Build
         run: hugo --minify
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+
+      - name: Deploy
+        if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: ./public
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          cname: atanaelcardoso.github.io
