@@ -1,3 +1,2 @@
-echo 'baseURL = "https://github.io"
+baseURL = "https://github.io"
 title = "Atanael Cardoso | Portfolio"
-theme = []' > hugo.toml
