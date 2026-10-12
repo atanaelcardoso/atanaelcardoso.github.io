@@ -159,6 +159,13 @@ body {
     letter-spacing: -0.03em;
 }
 
+.projects-context {
+    max-width: 780px;
+    margin: -28px 0 40px;
+    color: var(--light-text);
+    font-size: 15px;
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -170,6 +177,8 @@ body {
 }
 
 .saas-card {
+    display: flex;
+    flex-direction: column;
     background: white;
     padding: 40px;
     border-radius: 24px;
@@ -196,6 +205,52 @@ body {
     color: var(--text);
     font-size: 15px;
     line-height: 1.6;
+}
+
+.saas-card .project-description {
+    margin-bottom: 24px;
+}
+
+.project-subheading {
+    margin-bottom: 10px;
+    color: var(--dark);
+    font-size: 16px;
+}
+
+.project-list {
+    margin: 0 0 24px 20px;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.project-list li + li {
+    margin-top: 8px;
+}
+
+.decision-list {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.decision-list dt {
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.decision-list dd {
+    color: var(--light-text);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.project-link {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 13px;
 }
 
 .badge-group {
@@ -243,4 +298,10 @@ body {
 .skill-saas-box p {
     font-size: 14px;
     color: var(--light-text);
+}
+
+@media (max-width: 768px) {
+    .saas-card {
+        padding: 28px;
+    }
 }
