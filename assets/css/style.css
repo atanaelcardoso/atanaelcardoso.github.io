@@ -45,6 +45,10 @@ body {
     color: var(--brand);
 }
 
+.logo-link {
+    text-decoration: none;
+}
+
 .hero {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -166,14 +170,53 @@ body {
     font-size: 15px;
 }
 
+.projects-carousel {
+    position: relative;
+}
+
 .project-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: calc((100% - 32px) / 2);
+    grid-auto-flow: column;
+    grid-template-rows: 1fr;
     gap: 32px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    padding: 2px;
+    cursor: grab;
+    user-select: none;
+}
+
+.project-grid:active {
+    cursor: grabbing;
+}
+
+.project-grid:focus-visible {
+    outline: 3px solid rgba(99, 102, 241, 0.35);
+    outline-offset: 3px;
+}
+
+.project-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.project-grid-static {
+    grid-auto-columns: initial;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    overflow: visible;
 }
 
 @media (max-width: 768px) {
-    .project-grid { grid-template-columns: 1fr; }
+    .project-grid {
+        grid-auto-columns: 100%;
+    }
+
+    .project-grid-static {
+        grid-template-columns: 1fr;
+    }
 }
 
 .saas-card {
@@ -300,8 +343,235 @@ body {
     color: var(--light-text);
 }
 
+.site-footer {
+    border-top: 1px solid var(--border);
+    background: var(--section-bg);
+    padding: 40px 0 24px;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto auto;
+    align-items: center;
+    gap: 48px;
+}
+
+.footer-name {
+    color: var(--dark);
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-identity p,
+.footer-copyright {
+    color: var(--light-text);
+    font-size: 14px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.footer-nav a {
+    color: var(--text);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.footer-nav a:hover {
+    color: var(--brand-hover);
+}
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social a {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-social a:hover {
+    border-color: var(--brand);
+    color: var(--brand-hover);
+}
+
+.footer-social svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.footer-copyright {
+    margin-top: 48px;
+}
+
+.contact-section {
+    background-color: var(--bg);
+}
+
+.contact-container {
+    max-width: 700px;
+}
+
+.contact-eyebrow {
+    margin-bottom: 8px;
+    color: var(--brand);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.contact-title {
+    margin-bottom: 8px;
+    color: var(--dark);
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+}
+
+.contact-intro {
+    margin-bottom: 28px;
+    color: var(--text);
+    font-size: 17px;
+}
+
+.contact-required,
+.contact-note,
+.contact-status,
+.contact-email {
+    color: var(--light-text);
+    font-size: 14px;
+}
+
+.contact-required {
+    margin-bottom: 28px;
+}
+
+.contact-form {
+    display: grid;
+    gap: 18px;
+}
+
+.contact-field {
+    display: grid;
+    gap: 8px;
+}
+
+.contact-field label {
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.contact-field label span:not(.optional) {
+    color: var(--brand);
+}
+
+.contact-field .optional {
+    color: var(--light-text);
+    font-weight: 400;
+}
+
+.contact-field input,
+.contact-field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #94a3b8;
+    border-radius: 8px;
+    background: #f8fafc;
+    color: var(--dark);
+    font: inherit;
+}
+
+.contact-field textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+    border-color: var(--brand);
+    outline: 3px solid rgba(99, 102, 241, 0.18);
+}
+
+.contact-submit {
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.contact-note {
+    margin-top: -10px;
+}
+
+.contact-status:empty {
+    display: none;
+}
+
+.contact-status.is-pending {
+    color: var(--light-text);
+}
+
+.contact-status.is-success {
+    color: #15803d;
+}
+
+.contact-status.is-error {
+    color: #b91c1c;
+}
+
+.contact-submit:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.contact-back {
+    margin-top: 24px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
 @media (max-width: 768px) {
     .saas-card {
         padding: 28px;
+    }
+
+    .contact-title {
+        font-size: 36px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 24px;
+        text-align: center;
+    }
+
+    .footer-nav {
+        gap: 16px;
+    }
+
+    .footer-copyright {
+        margin-top: 28px;
+        text-align: center;
     }
 }

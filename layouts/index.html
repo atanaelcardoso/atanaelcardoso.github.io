@@ -13,7 +13,7 @@
         <div class="logo">atanaelcardoso<span>.</span></div>
     </nav>
 
-    <main class="hero">
+    <main class="hero" id="inicio">
         <div class="hero-content">
             <div class="subtitle">Disponível para Oportunidades</div>
             <h1>Engenharia de Software Júnior.</h1>
@@ -21,6 +21,7 @@
             <div class="hero-buttons">
                 <a href="https://github.com/atanaelcardoso" target="_blank" rel="noopener noreferrer" class="btn-pill">Acessar GitHub</a>
                 <a href="https://www.linkedin.com/in/atanaelcardoso/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-outline">LinkedIn</a>
+                <a href="{{ "contato/" | relURL }}" class="btn-pill btn-pill-outline">Entrar em contato</a>
             </div>
         </div>
         <div class="hero-image-wrapper">
@@ -28,12 +29,35 @@
         </div>
     </main>
 
-    <section class="section-wrapper">
+    <section class="section-wrapper" id="projetos">
         <div class="container-inner">
             <h2 class="section-title">Projetos em Destaque</h2>
-            <p class="projects-context">O Discord Clone é um projeto de estudo e o segundo projeto responde a um desafio técnico. Explico os cenários e as decisões sem atribuir a eles números ou resultados de uso que não apresento.</p>
-            <div class="project-grid">
+            <p class="projects-context">Projetos de estudo e desafios técnicos que demonstram minha experiência com desenvolvimento web, integração de APIs e infraestrutura.</p>
+            <div class="projects-carousel">
+                <div class="project-grid" tabindex="0" role="region" aria-label="Projetos em destaque. Role para ver mais projetos.">
                 
+                <div class="saas-card">
+                    <div class="badge-group">
+                        <span class="badge">Python</span><span class="badge">Django</span><span class="badge">PostgreSQL</span><span class="badge">TMDB API</span><span class="badge">LocalStack</span><span class="badge">Docker Compose</span>
+                    </div>
+                    <h3>CineScope</h3>
+                    <p class="project-description">Catálogo web em português para descobrir filmes populares, pesquisar títulos e organizar listas de favoritos e filmes assistidos.</p>
+                    <h4 class="project-subheading">O que implementei</h4>
+                    <ul class="project-list">
+                        <li>Catálogo de filmes com dados do TMDB, pesquisa por título e navegação paginada.</li>
+                        <li>Listas de favoritos e filmes assistidos salvas no navegador, além de integrações locais com S3 e SNS usando LocalStack.</li>
+                    </ul>
+                    <h4 class="project-subheading">Competências aplicadas</h4>
+                    <dl class="decision-list">
+                        <div><dt>Python + Django</dt><dd>Aplicação web para organizar as páginas do catálogo e integrar os dados dos filmes.</dd></div>
+                        <div><dt>TMDB API</dt><dd>Consumo de uma API externa para apresentar títulos, pôsteres e sinopses.</dd></div>
+                        <div><dt>PostgreSQL + Docker Compose</dt><dd>Banco de dados e serviços configurados para execução local reproduzível.</dd></div>
+                        <div><dt>AWS + LocalStack</dt><dd>Prática com boto3, S3, SNS e uma função Lambda em ambiente local.</dd></div>
+                        <div><dt>pytest</dt><dd>Testes automatizados com pytest e pytest-django.</dd></div>
+                    </dl>
+                    <a href="https://github.com/atanaelcardoso/CineScope" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-outline project-link">Ver repositório</a>
+                </div>
+
                 <div class="saas-card">
                     <div class="badge-group">
                         <span class="badge">React</span><span class="badge">TypeScript</span><span class="badge">Node.js</span><span class="badge">Express</span><span class="badge">Prisma</span><span class="badge">MySQL</span><span class="badge">Docker Compose</span>
@@ -76,15 +100,146 @@
                     <a href="https://github.com/atanaelcardoso/desafio-fullstack" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-outline project-link">Ver repositório</a>
                 </div>
 
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="section-wrapper" style="background: white;">
+    <script>
+        const carousel = document.querySelector(".project-grid");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const cards = [...carousel.querySelectorAll(".saas-card")];
+        let animationFrame;
+        let previousTime;
+        let loopDistance = 0;
+        let hasFocus = false;
+        let isClickPaused = false;
+        let dragStartX = 0;
+        let dragStartScroll = 0;
+        let isDragging = false;
+        let dragged = false;
+        let suppressClick = false;
+
+        if (reducedMotion) {
+            carousel.classList.add("project-grid-static");
+        } else if (cards.length > 1) {
+            const clones = cards.map((card) => {
+                const clone = card.cloneNode(true);
+                clone.setAttribute("aria-hidden", "true");
+                clone.querySelectorAll("a, button, input, select, textarea, [tabindex]").forEach((element) => {
+                    element.setAttribute("tabindex", "-1");
+                });
+                carousel.append(clone);
+                return clone;
+            });
+            loopDistance = clones[0].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+
+            const animate = (time) => {
+                if (document.hidden || hasFocus || isClickPaused) {
+                    previousTime = undefined;
+                    animationFrame = window.requestAnimationFrame(animate);
+                    return;
+                }
+
+                if (previousTime !== undefined) {
+                    carousel.scrollLeft += Math.min(time - previousTime, 50) * 0.15;
+                    while (carousel.scrollLeft >= loopDistance) {
+                        carousel.scrollLeft -= loopDistance;
+                    }
+                    while (carousel.scrollLeft < 0) {
+                        carousel.scrollLeft += loopDistance;
+                    }
+                }
+
+                previousTime = time;
+                animationFrame = window.requestAnimationFrame(animate);
+            };
+
+            animationFrame = window.requestAnimationFrame(animate);
+        }
+
+        carousel.addEventListener("pointerdown", (event) => {
+            if (event.pointerType !== "mouse" || event.button !== 0) return;
+
+            dragStartX = event.clientX;
+            dragStartScroll = carousel.scrollLeft;
+            isDragging = true;
+            dragged = false;
+            suppressClick = false;
+            carousel.setPointerCapture(event.pointerId);
+        });
+        carousel.addEventListener("pointermove", (event) => {
+            if (!isDragging) return;
+
+            const distance = event.clientX - dragStartX;
+            if (Math.abs(distance) > 5) dragged = true;
+            if (dragged) carousel.scrollLeft = dragStartScroll - distance;
+        });
+        carousel.addEventListener("pointerup", (event) => {
+            if (!isDragging) return;
+
+            isDragging = false;
+            if (carousel.hasPointerCapture(event.pointerId)) {
+                carousel.releasePointerCapture(event.pointerId);
+            }
+            if (dragged) {
+                suppressClick = true;
+                window.setTimeout(() => {
+                    suppressClick = false;
+                }, 0);
+            }
+        });
+        carousel.addEventListener("pointercancel", () => {
+            isDragging = false;
+        });
+        carousel.addEventListener("click", (event) => {
+            if (!suppressClick) return;
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            suppressClick = false;
+        }, true);
+        carousel.addEventListener("focusin", () => {
+            hasFocus = true;
+        });
+        carousel.addEventListener("focusout", (event) => {
+            if (!carousel.contains(event.relatedTarget)) hasFocus = false;
+        });
+        document.addEventListener("click", (event) => {
+            isClickPaused = carousel.contains(event.target);
+        });
+    </script>
+
+    <section class="section-wrapper" id="experiencia" style="background: white;">
         <div class="container-inner">
             <h2 class="section-title">Experiência Técnica & Competências</h2>
             <div class="skill-saas-grid">
                 
+                <div class="skill-saas-box">
+                    <h4>Python & Django</h4>
+                    <p>Desenvolvimento de aplicações web com Django, organização de páginas e integração com serviços externos.</p>
+                </div>
+
+                <div class="skill-saas-box">
+                    <h4>Integração com APIs</h4>
+                    <p>Consumo de APIs externas, como a TMDB, para buscar e exibir dados de filmes no catálogo.</p>
+                </div>
+
+                <div class="skill-saas-box">
+                    <h4>PostgreSQL & Docker Compose</h4>
+                    <p>Configuração de banco de dados e serviços em containers para executar o projeto em ambiente local.</p>
+                </div>
+
+                <div class="skill-saas-box">
+                    <h4>AWS & LocalStack</h4>
+                    <p>Prática local com boto3, S3, SNS e Lambda usando o LocalStack para simular serviços AWS.</p>
+                </div>
+
+                <div class="skill-saas-box">
+                    <h4>Testes com pytest</h4>
+                    <p>Criação e execução de testes automatizados com pytest e pytest-django.</p>
+                </div>
+
                 <div class="skill-saas-box">
                     <h4>JavaScript & TypeScript</h4>
                     <p>Desenvolvimento de aplicações sólidas, regras de negócio estruturadas e integração com APIs.</p>
@@ -133,6 +288,8 @@
             </div>
         </div>
     </section>
+
+    {{ partial "footer.html" . }}
 
 </body>
 </html>
