@@ -1,3 +1,16 @@
 baseURL = "https://atanaelcardoso.github.io/"
-title = "Atanael Cardoso | Portfolio"
-languageCode = "pt-BR"
+enableRobotsTXT = true
+defaultContentLanguage = "pt"
+defaultContentLanguageInSubdir = false
+
+[languages.pt]
+locale = "pt-BR"
+label = "Português"
+title = "Atanael Cardoso | Desenvolvedor de Software"
+weight = 1
+
+[languages.en]
+locale = "en-US"
+label = "English"
+title = "Atanael Cardoso | Software Developer"
+weight = 2

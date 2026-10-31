@@ -1,0 +1,224 @@
+[site_title]
+other = "Atanael Cardoso | Desenvolvedor de Software"
+[meta_description]
+other = "Portfólio de Atanael Cardoso, estudante de Análise e Desenvolvimento de Sistemas e desenvolvedor de software júnior. Projetos, tecnologias e contato."
+[og_description]
+other = "Projetos de desenvolvimento web, APIs e automações."
+[skip_to_content]
+other = "Pular para o conteúdo"
+[nav_label]
+other = "Navegação principal"
+[nav_home]
+other = "Início"
+[nav_about]
+other = "Sobre mim"
+[nav_skills]
+other = "Habilidades"
+[nav_projects]
+other = "Projetos"
+[nav_contact]
+other = "Contato"
+[menu_open]
+other = "Abrir menu"
+[menu_close]
+other = "Fechar menu"
+[email_link_label]
+other = "Enviar e-mail para Atanael Cardoso"
+[switch_language]
+other = "Mudar para inglês"
+[theme_switch_to_light]
+other = "Ativar modo claro"
+[theme_switch_to_dark]
+other = "Ativar modo escuro"
+[hero_role]
+other = "Desenvolvedor de Software Júnior"
+[hero_intro]
+other = "Transformo ideias em soluções digitais, desenvolvendo aplicações e automações com foco em tecnologia, organização e resolução de problemas."
+[hero_projects]
+other = "Ver projetos"
+[hero_contact]
+other = "Entrar em contato"
+[social_links]
+other = "Redes sociais"
+[hero_status]
+other = "Criando e aprendendo"
+[scroll_hint]
+other = "Role para explorar"
+[about_eyebrow]
+other = "01 / Sobre mim"
+[about_title_first]
+other = "Tecnologia com curiosidade,"
+[about_title_second]
+other = "método e propósito."
+[about_paragraph_one]
+other = "Sou estudante de <strong>Análise e Desenvolvimento de Sistemas na Universidade Potiguar (UnP)</strong> e tenho interesse em construir soluções de software úteis e bem organizadas."
+[about_paragraph_two]
+other = "Nos meus projetos, venho praticando desenvolvimento frontend e backend, APIs, bancos de dados e automações. Gosto de entender o problema, explorar possibilidades e evoluir a solução com clareza."
+[about_contact]
+other = "Vamos conversar"
+[education]
+other = "Formação"
+[degree]
+other = "Análise e Desenvolvimento de Sistemas"
+[interests]
+other = "Interesses"
+[interests_description]
+other = "Desenvolvimento de software, APIs, backend, frontend e automações."
+[skills_eyebrow]
+other = "02 / Habilidades"
+[skills_title_first]
+other = "Ferramentas que uso"
+[skills_title_second]
+other = "para tirar ideias do papel."
+[skills_intro]
+other = "Tecnologias praticadas nos projetos e estudos, organizadas por área."
+[frontend_description]
+other = "Interfaces web e componentes para aplicações."
+[backend_description]
+other = "Aplicações web, APIs e integração de serviços."
+[database]
+other = "Banco de dados"
+[database_description]
+other = "Persistência e modelagem relacional nos projetos."
+[infrastructure]
+other = "Ferramentas e infraestrutura"
+[infrastructure_description]
+other = "Fluxo de desenvolvimento, testes e ambientes locais."
+[aws_practice]
+other = "AWS · prática local"
+[learning_note]
+other = "Em desenvolvimento: Java e Spring Boot."
+[projects_eyebrow]
+other = "03 / Projetos selecionados"
+[projects_title_first]
+other = "Ideias que viraram"
+[projects_title_second]
+other = "código e aprendizado."
+[projects_intro]
+other = "Projetos de estudo e desafios técnicos com foco em desenvolvimento web, APIs e organização de software."
+[visual_concept_cinema]
+other = "CONCEITO VISUAL · CINESCOPE"
+[cinema_kicker]
+other = "FILMES PARA DESCOBRIR"
+[cinema_headline_first]
+other = "Uma história"
+[cinema_headline_second]
+other = "para cada momento."
+[project_type_web]
+other = "Aplicação web"
+[project_type_study]
+other = "Projeto de estudo"
+[project_type_challenge]
+other = "Desafio técnico"
+[cinescope_description]
+other = "Catálogo em português para descobrir filmes, pesquisar títulos e organizar favoritos e filmes assistidos."
+[cinescope_feature_search]
+other = "Catálogo TMDB com pesquisa e navegação paginada."
+[cinescope_feature_lists]
+other = "Listas de favoritos e assistidos salvas no navegador."
+[cinescope_feature_localstack]
+other = "Prática local com S3, SNS e Lambda via LocalStack."
+[technologies_used]
+other = "Tecnologias utilizadas"
+[demo]
+other = "Demonstração"
+[visual_concept_discord]
+other = "CONCEITO VISUAL · DISCORD CLONE"
+[community_label]
+other = "COMUNIDADE"
+[channel_general]
+other = "# canal-geral"
+[client_api]
+other = "CLIENTE ↔ API"
+[discord_description]
+other = "Aplicação inspirada em plataformas de comunidades, organizando conversas por servidores, canais e participantes."
+[discord_feature_crud]
+other = "Operações para usuários, servidores, canais, cargos e mensagens."
+[discord_feature_model]
+other = "Modelo relacional para membros, cargos, canais e mensagens."
+[discord_feature_apps]
+other = "Cliente e API organizados em aplicações separadas."
+[visual_concept_tasks]
+other = "CONCEITO VISUAL · DESAFIO FULL STACK"
+[task_list]
+other = "MINHAS TAREFAS"
+[task_week]
+other = "Organizar a semana"
+[task_shopping]
+other = "Planejar as compras"
+[task_review]
+other = "Revisar tarefas"
+[task_in_progress]
+other = "EM ANDAMENTO"
+[task_next]
+other = "PRÓXIMA"
+[task_done]
+other = "CONCLUÍDA"
+[task_status]
+other = "TAREFAS + STATUS"
+[challenge_description]
+other = "Aplicação para organizar tarefas domésticas, responsáveis e andamento em um só lugar."
+[challenge_feature_auth]
+other = "Cadastro, login e operações para gerenciar tarefas."
+[challenge_feature_filters]
+other = "Filtros por status e associação de tarefas a usuários."
+[challenge_feature_ui]
+other = "Interface React conectada a uma API própria."
+[project_visual_note]
+other = "Os painéis são composições visuais decorativas, não capturas das aplicações. Capturas reais não estão versionadas nos repositórios."
+[contact_eyebrow]
+other = "Próximo passo"
+[contact_banner_title]
+other = "Tem uma ideia em mente?"
+[contact_banner_description]
+other = "Estou aberto a conversar sobre tecnologia, projetos e oportunidades."
+[footer_role]
+other = "Desenvolvedor de Software"
+[footer_nav_label]
+other = "Navegação do rodapé"
+[footer_social_label]
+other = "Links de contato"
+[copyright]
+other = "Todos os direitos reservados."
+[contact_meta_description]
+other = "Entre em contato com Atanael Cardoso sobre seu projeto ou serviço."
+[contact_page_eyebrow]
+other = "Contato"
+[contact_page_title]
+other = "Vamos conversar"
+[contact_intro]
+other = "Conte um pouco sobre o seu projeto ou serviço. Vou responder pelo seu e-mail."
+[contact_required]
+other = "Os campos marcados com * são obrigatórios."
+[contact_name]
+other = "Nome"
+[contact_email]
+other = "E-mail"
+[contact_company]
+other = "Empresa"
+[optional]
+other = "(opcional)"
+[contact_message]
+other = "Mensagem"
+[contact_submit]
+other = "Enviar mensagem"
+[contact_back]
+other = "Voltar ao portfólio"
+[contact_sending]
+other = "Enviando mensagem..."
+[contact_success]
+other = "Mensagem enviada. Obrigado! Responderei em breve."
+[contact_unexpected]
+other = "Ocorreu um erro inesperado."
+[contact_response_error]
+other = "O serviço respondeu de forma inesperada"
+[contact_rejected]
+other = "O serviço recusou o envio"
+[contact_failure]
+other = "Não foi possível enviar a mensagem"
+[contact_activation_hint]
+other = "Se este for o primeiro envio, procure no seu e-mail (inclusive no spam) a mensagem de ativação do FormSubmit e confirme o endereço. Depois, tente novamente. Você também pode escrever para"
+[contact_subject]
+other = "Contato pelo portfólio"
+[contact_error_console]
+other = "Erro ao enviar a mensagem de contato:"

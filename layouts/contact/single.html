@@ -1,54 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="{{ .Site.Language.Locale }}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Entre em contato com Atanael Cardoso sobre seu projeto ou serviço.">
-    <title>{{ .Title }}</title>
-    {{ $style := resources.Get "css/style.css" | minify }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080D18">
+    <meta name="description" content="{{ i18n "contact_meta_description" }}">
+    <meta name="author" content="Atanael Cardoso">
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ if eq .Site.Language.Lang "en" }}en_US{{ else }}pt_BR{{ end }}">
+    <meta property="og:site_name" content="Atanael Cardoso">
+    <meta property="og:title" content="{{ i18n "contact_page_title" }} | Atanael Cardoso">
+    <meta property="og:description" content="{{ i18n "contact_meta_description" }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:image" content="{{ "images/atanael.jpg" | absURL }}">
+    <meta property="og:image:alt" content="Atanael Cardoso">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>{{ i18n "contact_page_title" }} | Atanael Cardoso</title>{{- $style := resources.Get "css/style.css" | minify | fingerprint -}}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    {{- partial "theme-init.html" . -}}
 </head>
 <body>
-    <nav class="navbar">
-        <a href="{{ "/" | relURL }}" class="logo logo-link">atanaelcardoso<span>.</span></a>
-    </nav>
+    <a class="skip-link" href="#conteudo">{{ i18n "skip_to_content" }}</a>
+    {{- partial "navbar.html" . -}}
 
-    <main>
-        <section class="section-wrapper contact-section" aria-labelledby="contact-title">
-            <div class="container-inner contact-container">
-                <p class="contact-eyebrow">Contato</p>
-                <h1 class="contact-title" id="contact-title">Vamos conversar</h1>
-                <p class="contact-intro">Conte um pouco sobre o seu projeto ou serviço. Vou responder pelo seu e-mail.</p>
-                <p class="contact-required">Os campos marcados com * são obrigatórios.</p>
+    <main id="conteudo">
+        <section class="content-section contact-section" aria-labelledby="contact-title">
+            <div class="page-container contact-container">
+                <p class="contact-eyebrow">{{ i18n "contact_page_eyebrow" }}</p>
+                <h1 class="contact-title" id="contact-title">{{ i18n "contact_page_title" }}</h1>
+                <p class="contact-intro">{{ i18n "contact_intro" }}</p>
+                <p class="contact-required">{{ i18n "contact_required" }}</p>
 
                 <form class="contact-form" id="contact-form">
                     <div class="contact-field">
-                        <label for="contact-name">Nome <span aria-hidden="true">*</span></label>
+                        <label for="contact-name">{{ i18n "contact_name" }} <span aria-hidden="true">*</span></label>
                         <input id="contact-name" name="name" type="text" autocomplete="name" required>
                     </div>
                     <div class="contact-field">
-                        <label for="contact-email">E-mail <span aria-hidden="true">*</span></label>
+                        <label for="contact-email">{{ i18n "contact_email" }} <span aria-hidden="true">*</span></label>
                         <input id="contact-email" name="email" type="email" autocomplete="email" required>
                     </div>
                     <div class="contact-field">
-                        <label for="contact-company">Empresa <span class="optional">(opcional)</span></label>
+                        <label for="contact-company">{{ i18n "contact_company" }} <span class="optional">{{ i18n "optional" }}</span></label>
                         <input id="contact-company" name="company" type="text" autocomplete="organization">
                     </div>
                     <div class="contact-field">
-                        <label for="contact-message">Mensagem <span aria-hidden="true">*</span></label>
+                        <label for="contact-message">{{ i18n "contact_message" }} <span aria-hidden="true">*</span></label>
                         <textarea id="contact-message" name="message" rows="6" required></textarea>
                     </div>
-                    <button class="btn-pill contact-submit" type="submit">Enviar mensagem</button>
+                    <button class="button button-primary contact-submit" type="submit">{{ i18n "contact_submit" }}</button>
                     <p class="contact-status" id="contact-status" role="status" aria-live="polite"></p>
                 </form>
-                <a href="{{ "/" | relURL }}" class="btn-pill btn-pill-outline contact-back">Voltar ao portfólio</a>
+                <a href="{{ "/" | relLangURL }}" class="button button-secondary contact-back">{{ i18n "contact_back" }}</a>
             </div>
         </section>
     </main>
 
-    {{ partial "footer.html" . }}
+    {{- partial "footer.html" . -}}
+    {{- partial "navigation-script.html" . -}}
 
     <script>
+        const contactMessages = {
+            subject: {{ i18n "contact_subject" | jsonify }},
+            sending: {{ i18n "contact_sending" | jsonify }},
+            success: {{ i18n "contact_success" | jsonify }},
+            unexpected: {{ i18n "contact_unexpected" | jsonify }},
+            responseError: {{ i18n "contact_response_error" | jsonify }},
+            rejected: {{ i18n "contact_rejected" | jsonify }},
+            failure: {{ i18n "contact_failure" | jsonify }},
+            activationHint: {{ i18n "contact_activation_hint" | jsonify }},
+            consoleError: {{ i18n "contact_error_console" | jsonify }}
+        };
+
         document.querySelector("#contact-form").addEventListener("submit", async (event) => {
             event.preventDefault();
 
@@ -56,11 +81,11 @@
             const status = document.querySelector("#contact-status");
             const submitButton = form.querySelector('button[type="submit"]');
             const formData = new FormData(form);
-            formData.set("_subject", `Contato pelo portfólio: ${formData.get("name").trim()}`);
+            formData.set("_subject", `${contactMessages.subject}: ${formData.get("name").trim()}`);
             formData.set("_replyto", formData.get("email").trim());
 
             status.className = "contact-status is-pending";
-            status.textContent = "Enviando mensagem...";
+            status.textContent = contactMessages.sending;
             submitButton.disabled = true;
 
             try {
@@ -78,21 +103,21 @@
                 try {
                     result = JSON.parse(responseText);
                 } catch {
-                    throw new Error(`O serviço respondeu de forma inesperada (HTTP ${response.status}).`);
+                    throw new Error(`${contactMessages.responseError} (HTTP ${response.status}).`);
                 }
 
                 if (!response.ok || (result.success !== "true" && result.success !== true)) {
-                    throw new Error(result.message || `O serviço recusou o envio (HTTP ${response.status}).`);
+                    throw new Error(result.message || `${contactMessages.rejected} (HTTP ${response.status}).`);
                 }
 
                 form.reset();
                 status.className = "contact-status is-success";
-                status.textContent = "Mensagem enviada. Obrigado! Responderei em breve.";
+                status.textContent = contactMessages.success;
             } catch (error) {
-                console.error("Erro ao enviar a mensagem de contato:", error);
+                console.error(contactMessages.consoleError, error);
                 status.className = "contact-status is-error";
-                const reason = error instanceof Error ? error.message : "Ocorreu um erro inesperado.";
-                status.textContent = `Não foi possível enviar a mensagem: ${reason} Se este for o primeiro envio, procure no seu e-mail (inclusive no spam) a mensagem de ativação do FormSubmit e confirme o endereço. Depois, tente novamente. Você também pode escrever para atanaelcardoso3@gmail.com.`;
+                const reason = error instanceof Error ? error.message : contactMessages.unexpected;
+                status.textContent = `${contactMessages.failure}: ${reason} ${contactMessages.activationHint} atanaelcardoso3@gmail.com.`;
             } finally {
                 submitButton.disabled = false;
             }

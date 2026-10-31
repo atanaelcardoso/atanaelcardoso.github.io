@@ -1,0 +1,39 @@
+{{ $isContact := eq .Type "contact" }}
+{{ $homeURL := "/" | relLangURL }}
+{{ $contactURL := "contato/" | relLangURL }}
+{{ if eq .Site.Language.Lang "en" }}
+    {{ $contactURL = "contact/" | relLangURL }}
+{{ end }}
+<header class="site-header">
+    <nav class="navbar page-container" aria-label="{{ i18n "nav_label" }}">
+        <a class="logo" href="{{ $homeURL }}" aria-label="Atanael Cardoso, {{ i18n "nav_home" }}">atanael<span>.</span></a>
+        <div class="navbar-actions">
+            <div class="primary-navigation" id="primary-navigation">
+                <a href="{{ $homeURL }}#inicio" data-section-link>{{ i18n "nav_home" }}</a>
+                <a href="{{ $homeURL }}#sobre" data-section-link>{{ i18n "nav_about" }}</a>
+                <a href="{{ $homeURL }}#habilidades" data-section-link>{{ i18n "nav_skills" }}</a>
+                <a href="{{ $homeURL }}#projetos" data-section-link>{{ i18n "nav_projects" }}</a>
+                <a href="{{ $contactURL }}" {{ if $isContact }}aria-current="page"{{ end }}>{{ i18n "nav_contact" }}</a>
+            </div>
+            <div class="utility-controls">
+                {{ with .Translations }}
+                    {{ range . }}
+                        <a class="language-switch" href="{{ .RelPermalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}" aria-label="{{ i18n "switch_language" }}">{{ .Lang | upper }}</a>
+                    {{ end }}
+                {{ end }}
+                <button class="theme-toggle" type="button" data-theme-toggle
+                    data-light-label="{{ i18n "theme_switch_to_light" }}"
+                    data-dark-label="{{ i18n "theme_switch_to_dark" }}"
+                    aria-label="{{ i18n "theme_switch_to_light" }}" title="{{ i18n "theme_switch_to_light" }}">
+                    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"/></svg>
+                </button>
+            </div>
+        </div>
+        <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false"
+            data-open-label="{{ i18n "menu_open" }}" data-close-label="{{ i18n "menu_close" }}"
+            aria-label="{{ i18n "menu_open" }}">
+            <span></span><span></span>
+        </button>
+    </nav>
+</header>
