@@ -153,7 +153,7 @@
                     <p class="section-intro">{{ i18n "projects_intro" }}</p>
                 </div>
 
-                <div class="project-grid">
+                <div class="project-grid" data-project-grid data-initial-count="3" data-batch-size="3">
                     <article class="project-card project-card-featured" data-reveal>
                         <div class="project-visual project-visual-cinema" aria-hidden="true">
                             <span class="visual-label">{{ i18n "visual_concept_cinema" }}</span>
@@ -239,6 +239,43 @@
                             </div>
                         </div>
                     </article>
+
+                    <article class="project-card" data-reveal>
+                        <div class="project-visual project-visual-documents" aria-hidden="true">
+                            <span class="visual-label">{{ i18n "visual_concept_quick_filler" }}</span>
+                            <div class="document-flow">
+                                <span>PDF</span><i>→</i><span>{{ i18n "document_review" }}</span><i>→</i><span>XLSX</span>
+                            </div>
+                            <span class="visual-code">OCR · EXTRAÇÃO · EXPORTAÇÃO</span>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-meta"><span>04</span><span>{{ i18n "project_type_challenge" }}</span></div>
+                            <h3>Quick Filler</h3>
+                            <p class="project-description">{{ i18n "quick_filler_description" }}</p>
+                            <ul class="project-highlights">
+                                <li>{{ i18n "quick_filler_feature_documents" }}</li>
+                                <li>{{ i18n "quick_filler_feature_ocr" }}</li>
+                                <li>{{ i18n "quick_filler_feature_export" }}</li>
+                            </ul>
+                            <ul class="project-tech" aria-label="{{ i18n "technologies_used" }}">
+                                <li>React</li><li>Node.js</li><li>Express</li><li>Tesseract.js</li><li>XLSX</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/atanaelcardoso/desafio-programador" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                                <a href="https://desafio-programador-frontend.onrender.com/" target="_blank" rel="noopener noreferrer">{{ i18n "demo" }} <span aria-hidden="true">↗</span></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="projects-actions">
+                    <button class="button button-secondary projects-toggle" type="button" data-projects-toggle
+                            data-more-label="{{ i18n "projects_show_more" }}"
+                            data-less-label="{{ i18n "projects_show_less" }}"
+                            aria-expanded="false" hidden>
+                        <span data-projects-toggle-label>{{ i18n "projects_show_more" }}</span>
+                        <span class="projects-remaining" data-projects-remaining></span>
+                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7.5 5 5 5-5"/></svg>
+                    </button>
                 </div>
                 <p class="project-visual-note">{{ i18n "project_visual_note" }}</p>
             </div>

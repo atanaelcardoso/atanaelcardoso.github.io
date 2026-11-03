@@ -706,6 +706,39 @@ textarea:focus-visible {
     gap: 18px;
 }
 
+.project-card[hidden],
+.projects-toggle[hidden] {
+    display: none;
+}
+
+.projects-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.projects-toggle {
+    min-height: 44px;
+    gap: 9px;
+    cursor: pointer;
+}
+
+.projects-toggle svg {
+    width: 15px;
+    height: 15px;
+    transition: transform 180ms ease;
+}
+
+.projects-toggle[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+.projects-remaining {
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 500;
+}
+
 .project-card {
     display: flex;
     min-width: 0;
@@ -784,6 +817,33 @@ textarea:focus-visible {
 
 .project-visual-tasks {
     background: linear-gradient(145deg, #102129, #101827 62%, #0d1822);
+}
+
+.project-visual-documents {
+    background: linear-gradient(145deg, #202116, #171827 62%, #101723);
+}
+
+.document-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 12px;
+    color: #f1f5fa;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 11px;
+}
+
+.document-flow span {
+    padding: 8px 10px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 6px;
+    background: rgba(8, 13, 24, 0.52);
+}
+
+.document-flow i {
+    color: var(--accent);
+    font-style: normal;
 }
 
 .visual-label {

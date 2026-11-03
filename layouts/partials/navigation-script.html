@@ -48,6 +48,42 @@
         updateThemeLabel();
     });
 
+    const projectGrid = document.querySelector("[data-project-grid]");
+    const projectToggle = document.querySelector("[data-projects-toggle]");
+
+    if (projectGrid && projectToggle) {
+        const projectCards = [...projectGrid.querySelectorAll(".project-card")];
+        const initialCount = Number(projectGrid.dataset.initialCount);
+        const batchSize = Number(projectGrid.dataset.batchSize);
+        const projectToggleLabel = projectToggle.querySelector("[data-projects-toggle-label]");
+        const projectCount = projectToggle.querySelector("[data-projects-remaining]");
+        let visibleCount = Math.min(initialCount, projectCards.length);
+
+        const updateProjects = () => {
+            const isExpanded = visibleCount > initialCount;
+            const isFullyExpanded = visibleCount === projectCards.length;
+
+            projectCards.forEach((card, index) => {
+                card.hidden = index >= visibleCount;
+            });
+
+            projectToggle.hidden = projectCards.length <= initialCount;
+            projectToggle.setAttribute("aria-expanded", String(isExpanded));
+            projectToggleLabel.textContent = isFullyExpanded
+                ? projectToggle.dataset.lessLabel
+                : projectToggle.dataset.moreLabel;
+            projectCount.textContent = isFullyExpanded ? "" : `(${projectCards.length - visibleCount})`;
+        };
+
+        updateProjects();
+        projectToggle.addEventListener("click", () => {
+            visibleCount = visibleCount === projectCards.length
+                ? initialCount
+                : Math.min(visibleCount + batchSize, projectCards.length);
+            updateProjects();
+        });
+    }
+
     const sectionLinks = [...document.querySelectorAll("[data-section-link]")];
     const sections = sectionLinks
         .map((link) => document.querySelector(new URL(link.href, window.location.href).hash))

@@ -96,6 +96,10 @@ other = "Ideas turned into"
 other = "code and learning."
 [projects_intro]
 other = "Study projects and technical challenges focused on web development, APIs, and software organization."
+[projects_show_more]
+other = "View more projects"
+[projects_show_less]
+other = "Show less"
 [visual_concept_cinema]
 other = "VISUAL CONCEPT · CINESCOPE"
 [cinema_kicker]
@@ -164,6 +168,18 @@ other = "Registration, login, and task management operations."
 other = "Status filters and task assignment to users."
 [challenge_feature_ui]
 other = "React interface connected to a custom API."
+[visual_concept_quick_filler]
+other = "VISUAL CONCEPT · QUICK FILLER"
+[document_review]
+other = "REVIEW"
+[quick_filler_description]
+other = "A web app that transcribes time cards and payslips from PDFs, lets users review the data, and exports spreadsheets."
+[quick_filler_feature_documents]
+other = "Upload and processing for both document types."
+[quick_filler_feature_ocr]
+other = "OCR for scanned documents and review of extracted data."
+[quick_filler_feature_export]
+other = "Editable table with XLSX, CSV, or JSON export."
 [project_visual_note]
 other = "These panels are decorative visual compositions, not application screenshots. Real screenshots are not included in the repositories."
 [contact_eyebrow]

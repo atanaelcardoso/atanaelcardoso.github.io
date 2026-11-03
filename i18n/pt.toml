@@ -96,6 +96,10 @@ other = "Ideias que viraram"
 other = "código e aprendizado."
 [projects_intro]
 other = "Projetos de estudo e desafios técnicos com foco em desenvolvimento web, APIs e organização de software."
+[projects_show_more]
+other = "Ver mais projetos"
+[projects_show_less]
+other = "Mostrar menos"
 [visual_concept_cinema]
 other = "CONCEITO VISUAL · CINESCOPE"
 [cinema_kicker]
@@ -164,6 +168,18 @@ other = "Cadastro, login e operações para gerenciar tarefas."
 other = "Filtros por status e associação de tarefas a usuários."
 [challenge_feature_ui]
 other = "Interface React conectada a uma API própria."
+[visual_concept_quick_filler]
+other = "CONCEITO VISUAL · QUICK FILLER"
+[document_review]
+other = "REVISÃO"
+[quick_filler_description]
+other = "Aplicação web que transcreve cartões de ponto e holerites em PDF, permite revisar os dados e exportar planilhas."
+[quick_filler_feature_documents]
+other = "Envio e processamento de PDFs dos dois tipos de documento."
+[quick_filler_feature_ocr]
+other = "OCR para documentos digitalizados e revisão de dados extraídos."
+[quick_filler_feature_export]
+other = "Tabela editável e exportação para XLSX, CSV ou JSON."
 [project_visual_note]
 other = "Os painéis são composições visuais decorativas, não capturas das aplicações. Capturas reais não estão versionadas nos repositórios."
 [contact_eyebrow]
