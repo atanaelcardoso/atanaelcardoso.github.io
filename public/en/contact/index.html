@@ -17,7 +17,7 @@
     <meta property="og:image" content="http://localhost:1313/images/atanael.jpg">
     <meta property="og:image:alt" content="Atanael Cardoso">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Let&#39;s talk | Atanael Cardoso</title><link rel="stylesheet" href="/css/style.min.7fbfb4d3f87d595e4812e6da7d64433a141382a7023f2969d288015c9f3bb1a3.css"><script>
+    <title>Let&#39;s talk | Atanael Cardoso</title><link rel="stylesheet" href="/css/style.min.81be9b3a978e5f7b358a3a9d357c9c884db074e05d0dfdc311e7fbfcbee7029e.css"><script>
     try {
         const savedTheme = localStorage.getItem("portfolio-theme");
         document.documentElement.dataset.theme = savedTheme === "light" ? "light" : "dark";
@@ -185,6 +185,42 @@
         }
         updateThemeLabel();
     });
+
+    const projectGrid = document.querySelector("[data-project-grid]");
+    const projectToggle = document.querySelector("[data-projects-toggle]");
+
+    if (projectGrid && projectToggle) {
+        const projectCards = [...projectGrid.querySelectorAll(".project-card")];
+        const initialCount = Number(projectGrid.dataset.initialCount);
+        const batchSize = Number(projectGrid.dataset.batchSize);
+        const projectToggleLabel = projectToggle.querySelector("[data-projects-toggle-label]");
+        const projectCount = projectToggle.querySelector("[data-projects-remaining]");
+        let visibleCount = Math.min(initialCount, projectCards.length);
+
+        const updateProjects = () => {
+            const isExpanded = visibleCount > initialCount;
+            const isFullyExpanded = visibleCount === projectCards.length;
+
+            projectCards.forEach((card, index) => {
+                card.hidden = index >= visibleCount;
+            });
+
+            projectToggle.hidden = projectCards.length <= initialCount;
+            projectToggle.setAttribute("aria-expanded", String(isExpanded));
+            projectToggleLabel.textContent = isFullyExpanded
+                ? projectToggle.dataset.lessLabel
+                : projectToggle.dataset.moreLabel;
+            projectCount.textContent = isFullyExpanded ? "" : `(${projectCards.length - visibleCount})`;
+        };
+
+        updateProjects();
+        projectToggle.addEventListener("click", () => {
+            visibleCount = visibleCount === projectCards.length
+                ? initialCount
+                : Math.min(visibleCount + batchSize, projectCards.length);
+            updateProjects();
+        });
+    }
 
     const sectionLinks = [...document.querySelectorAll("[data-section-link]")];
     const sections = sectionLinks
