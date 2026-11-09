@@ -32,6 +32,12 @@ other = "Ativar modo claro"
 other = "Ativar modo escuro"
 [hero_role]
 other = "Desenvolvedor de Software Júnior"
+[typing_phrase_one]
+other = "Interfaces, APIs e automações"
+[typing_phrase_two]
+other = "Do conceito ao código"
+[scroll_progress]
+other = "Progresso da rolagem"
 [hero_intro]
 other = "Transformo ideias em soluções digitais, desenvolvendo aplicações e automações com foco em tecnologia, organização e resolução de problemas."
 [hero_projects]

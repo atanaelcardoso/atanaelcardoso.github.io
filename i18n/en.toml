@@ -32,6 +32,12 @@ other = "Switch to light mode"
 other = "Switch to dark mode"
 [hero_role]
 other = "Junior Software Developer"
+[typing_phrase_one]
+other = "Interfaces, APIs, and automation"
+[typing_phrase_two]
+other = "From concept to code"
+[scroll_progress]
+other = "Scroll progress"
 [hero_intro]
 other = "I turn ideas into digital solutions by building applications and automations focused on technology, organization, and problem-solving."
 [hero_projects]

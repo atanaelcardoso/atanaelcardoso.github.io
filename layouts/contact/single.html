@@ -24,16 +24,17 @@
 <body>
     <a class="skip-link" href="#conteudo">{{ i18n "skip_to_content" }}</a>
     {{- partial "navbar.html" . -}}
+    {{- partial "motion-background.html" . -}}
 
     <main id="conteudo">
         <section class="content-section contact-section" aria-labelledby="contact-title">
-            <div class="page-container contact-container">
+            <div class="page-container contact-container" data-reveal data-stagger-items>
                 <p class="contact-eyebrow">{{ i18n "contact_page_eyebrow" }}</p>
                 <h1 class="contact-title" id="contact-title">{{ i18n "contact_page_title" }}</h1>
                 <p class="contact-intro">{{ i18n "contact_intro" }}</p>
                 <p class="contact-required">{{ i18n "contact_required" }}</p>
 
-                <form class="contact-form" id="contact-form">
+                <form class="contact-form" id="contact-form" data-stagger-items>
                     <div class="contact-field">
                         <label for="contact-name">{{ i18n "contact_name" }} <span aria-hidden="true">*</span></label>
                         <input id="contact-name" name="name" type="text" autocomplete="name" required>
