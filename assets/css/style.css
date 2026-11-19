@@ -1291,65 +1291,6 @@ textarea:focus-visible {
     border-top: 1px solid rgba(148, 163, 184, 0.1);
 }
 
-.footer-seo {
-    position: relative;
-}
-
-.footer-seo summary {
-    color: var(--text-muted);
-    font-size: 10px;
-    cursor: pointer;
-    list-style: none;
-    transition: color 160ms ease;
-}
-
-.footer-seo summary::-webkit-details-marker {
-    display: none;
-}
-
-.footer-seo summary::before {
-    content: "+";
-    display: inline-block;
-    width: 10px;
-    color: var(--accent);
-}
-
-.footer-seo[open] summary {
-    color: var(--accent);
-}
-
-.footer-seo[open] summary::before {
-    content: "−";
-}
-
-.footer-seo-keywords {
-    position: absolute;
-    z-index: 10;
-    right: 0;
-    bottom: calc(100% + 12px);
-    display: none;
-    width: min(560px, 80vw);
-    max-height: 220px;
-    overflow-y: auto;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 4px 10px;
-    padding: 14px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: #0d1524;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-}
-
-.footer-seo[open] .footer-seo-keywords {
-    display: grid;
-}
-
-.footer-seo-keywords span {
-    color: #718096;
-    font-size: 9px;
-    line-height: 1.5;
-}
-
 .footer-email,
 .footer-copyright {
     margin: 0;
@@ -1792,12 +1733,6 @@ textarea:focus-visible {
     .footer-nav {
         grid-column: 1;
         grid-row: 3;
-    }
-
-    .footer-seo-keywords {
-        right: -4px;
-        width: calc(100vw - 32px);
-        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .footer-bottom {

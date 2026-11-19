@@ -1,9 +1,9 @@
 [site_title]
-other = "Atanael Cardoso | Desenvolvedor de Software"
+other = "Atanael Cardoso | Desenvolvedor Full Stack e Backend"
 [meta_description]
-other = "Portfólio de Atanael Cardoso, estudante de Análise e Desenvolvimento de Sistemas e desenvolvedor de software júnior. Projetos, tecnologias e contato."
+other = "Portfólio de Atanael Cardoso, desenvolvedor full stack e backend. Projetos em JavaScript, TypeScript, Python, React e Node.js, com links para contato."
 [og_description]
-other = "Projetos de desenvolvimento web, APIs e automações."
+other = "Portfólio e projetos de Atanael Cardoso em JavaScript, TypeScript, Python, React e Node.js. Confira os projetos e entre em contato."
 [skip_to_content]
 other = "Pular para o conteúdo"
 [nav_label]
@@ -70,12 +70,6 @@ other = "Análise e Desenvolvimento de Sistemas"
 other = "Interesses"
 [interests_description]
 other = "Desenvolvimento de software, APIs, backend, frontend e automações."
-[footer_seo_label]
-other = "Especialidades e tecnologias"
-[footer_seo_summary]
-other = "SEO"
-[footer_seo_keywords]
-other = "Atanael Cardoso,desenvolvedor de software,desenvolvedor junior,desenvolvimento web,desenvolvimento frontend,desenvolvimento backend,programador,programação,programação web,desenvolvimento de sistemas,Análise e Desenvolvimento de Sistemas,HTML,CSS,JavaScript,TypeScript,React,Angular,Vue.js,Node.js,Python,Java,SQL,MySQL,PostgreSQL,MongoDB,APIs REST,API RESTful,integração de sistemas,banco de dados,Git,GitHub,HTML semântico,CSS responsivo,layout responsivo,design responsivo,acessibilidade web,UX,UI,aplicações web,aplicações SPA,desenvolvimento full stack,software,tecnologia,programação orientada a objetos,algoritmos,estruturas de dados,automação,automação de processos,robótica de software,Python para automação,JavaScript para web,frontend moderno,backend moderno,servidor web,arquitetura de software,arquitetura MVC,arquitetura REST,segurança de aplicações,controle de versão,deploy,CI CD,devops,cloud computing,testes de software,testes automatizados,debugging,resolução de problemas,logica de programação,boas práticas de código,clean code,Gitflow,projetos de software,portfólio de desenvolvedor,carreira em tecnologia,estágio em desenvolvimento,desenvolvedor em Natal,desenvolvedor no Brasil,desenvolvimento de APIs,APIs RESTful,JSON,HTTP,HTTPS,JWT,OAuth,autenticação,autorização,formulários web,web design,landing pages,sites responsivos,otimização de desempenho,SEO técnico,progressive web apps,acessibilidade digital,usabilidade,prototipação,figma,design de interfaces,documentação técnica,aprendizado contínuo"
 [skills_eyebrow]
 other = "02 / Habilidades"
 [skills_title_first]

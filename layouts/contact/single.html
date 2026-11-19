@@ -17,6 +17,9 @@
     <meta property="og:image" content="{{ "images/atanael.jpg" | absURL }}">
     <meta property="og:image:alt" content="Atanael Cardoso">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ i18n "contact_page_title" }} | Atanael Cardoso">
+    <meta name="twitter:description" content="{{ i18n "contact_meta_description" }}">
+    <meta name="twitter:image" content="{{ "images/atanael.jpg" | absURL }}">
     <title>{{ i18n "contact_page_title" }} | Atanael Cardoso</title>{{- $style := resources.Get "css/style.css" | minify | fingerprint -}}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
     {{- partial "theme-init.html" . -}}
