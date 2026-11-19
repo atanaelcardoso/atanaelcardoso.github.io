@@ -70,6 +70,12 @@ other = "Systems Analysis and Development"
 other = "Interests"
 [interests_description]
 other = "Software development, APIs, backend, frontend, and automation."
+[footer_seo_label]
+other = "Specialties and technologies"
+[footer_seo_summary]
+other = "SEO"
+[footer_seo_keywords]
+other = "Atanael Cardoso,software developer,junior developer,web development,frontend development,backend development,programmer,programming,web programming,software development,systems analysis and development,HTML,CSS,JavaScript,TypeScript,React,Angular,Vue.js,Node.js,Python,Java,SQL,MySQL,PostgreSQL,MongoDB,REST APIs,RESTful API,system integration,database,Git,GitHub,semantic HTML,responsive CSS,responsive layout,responsive design,web accessibility,UX,UI,web applications,SPA applications,full stack development,software,technology,object-oriented programming,algorithms,data structures,automation,process automation,software robotics,Python automation,JavaScript web,modern frontend,modern backend,web server,software architecture,MVC architecture,REST architecture,application security,version control,deployment,CI CD,devops,cloud computing,software testing,automated testing,debugging,problem solving,programming logic,code best practices,clean code,Gitflow,software projects,developer portfolio,technology career,software internship,developer in Natal,developer in Brazil,API development,RESTful APIs,JSON,HTTP,HTTPS,JWT,OAuth,authentication,authorization,web forms,web design,landing pages,responsive websites,performance optimization,technical SEO,progressive web apps,digital accessibility,usability,prototyping,figma,interface design,technical documentation,continuous learning"
 [skills_eyebrow]
 other = "02 / Skills"
 [skills_title_first]

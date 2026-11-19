@@ -17,6 +17,14 @@
                 <a href="{{ $homeURL }}#habilidades">{{ i18n "nav_skills" }}</a>
                 <a href="{{ $homeURL }}#projetos">{{ i18n "nav_projects" }}</a>
                 <a href="{{ $contactURL }}">{{ i18n "nav_contact" }}</a>
+                <details class="footer-seo">
+                    <summary>{{ i18n "footer_seo_summary" }}</summary>
+                    <div class="footer-seo-keywords" aria-label="{{ i18n "footer_seo_label" }}">
+                        {{ range split (i18n "footer_seo_keywords") "," }}
+                            <span>{{ trim . " " }}</span>
+                        {{ end }}
+                    </div>
+                </details>
             </nav>
 
             <div class="footer-social" aria-label="{{ i18n "footer_social_label" }}">

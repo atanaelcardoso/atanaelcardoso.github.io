@@ -23,6 +23,22 @@
         if (event.key === "Escape") closeMenu();
     });
 
+    const footerSeoDetails = document.querySelector(".footer-seo");
+
+    if (footerSeoDetails) {
+        document.addEventListener("click", (event) => {
+            if (!footerSeoDetails.contains(event.target)) {
+                footerSeoDetails.removeAttribute("open");
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                footerSeoDetails.removeAttribute("open");
+            }
+        });
+    }
+
     const themeButton = document.querySelector("[data-theme-toggle]");
     const themeColor = document.querySelector('meta[name="theme-color"]');
 
